@@ -9,7 +9,7 @@ init(autoreset=True)
 networks = []
 
 def display_banner():
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(Fore.CYAN + Style.BRIGHT + """
   ____        _ _ _       _   _      _            
  |  _ \ _   _| | (_) __ _| |_| | ___| |_ ___ _ __ 
@@ -41,7 +41,7 @@ def packet_handler(packet):
 def scan_wifi():
     display_banner()
     print(Fore.GREEN + "[*] Scanning for nearby networks... Press Ctrl+C to stop.\n")
-    sniff(prn=packet_handler, iface='wlan0', store=False)
+    sniff(prn=packet_handler, iface='Wi-Fi', store=False)
 
 if __name__ == "__main__":
     try:
